@@ -1,0 +1,2 @@
+alias envos='env | grep OS_'
+alias unsetos='unset $(echo $(env | grep OS_ | sed "s,=.*$,,g"))'

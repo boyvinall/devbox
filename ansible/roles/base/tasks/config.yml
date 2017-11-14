@@ -1,0 +1,21 @@
+- name: create ~/.bash_profile.d
+  file:
+    name: '{{ansible_env["HOME"]}}/.bash_profile.d'
+    state: directory
+
+- name: write bash_profile.d scriptlets
+  template:
+    src: '{{item}}'
+    dest: '{{ansible_env["HOME"]}}/.bash_profile.d/{{item|basename|regex_replace("\.j2$","")}}'
+  with_fileglob:
+    - 'templates/bash_profile.d/*.j2'
+
+- name: create ~/.bash_profile
+  copy:
+    content: |
+      for f in ~/.bash_profile.d/*; do
+        . $f
+      done
+      test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+    dest: '{{ansible_env["HOME"]}}/.bash_profile'
+

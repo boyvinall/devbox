@@ -1,0 +1,7 @@
+{% for section, config in pip_conf.iteritems() %}
+[{{section}}]
+{% for key, value in config.iteritems() %}
+{{key}}={{value}}
+{% endfor %}
+
+{% endfor %}

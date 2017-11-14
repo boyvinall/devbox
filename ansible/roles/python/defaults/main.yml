@@ -1,0 +1,3 @@
+pip_conf:
+  list:
+    format: legacy

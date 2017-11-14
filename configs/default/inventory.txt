@@ -1,0 +1,5 @@
+[localhosts]
+localhost ansible_connection=local
+
+[python:children]
+localhosts

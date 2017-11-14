@@ -1,0 +1,11 @@
+- name: create pip conf directory
+  file:
+    name: '{{item}}'
+    state: directory
+  with_items:
+    - '{{ansible_env["HOME"]}}/.pip'
+
+- name: configure pip
+  template:
+    src: pip.conf.j2
+    dest: '{{ansible_env["HOME"]}}/.pip/pip.conf'
