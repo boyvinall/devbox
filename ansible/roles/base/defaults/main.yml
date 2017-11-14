@@ -1,1 +1,2 @@
 vagrant_default_provider: vmware_fusion
+shell_ps1: '\n`date "+%a%d/%m %H:%M:%S"` \[\033[32m\]\u@\h \[\033[33m\]`pwd`\033[0m\]\n$ '

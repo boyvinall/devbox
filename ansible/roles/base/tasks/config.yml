@@ -1,7 +1,10 @@
-- name: create ~/.bash_profile.d
+- name: create home dot directories
   file:
-    name: '{{ansible_env["HOME"]}}/.bash_profile.d'
+    name: '{{ansible_env["HOME"]}}/{{item}}'
     state: directory
+  with_items:
+    - .bash_profile.d
+    - .bash_completion.d
 
 - name: write bash_profile.d scriptlets
   template:
@@ -16,6 +19,7 @@
       for f in ~/.bash_profile.d/*; do
         . $f
       done
+
       test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
     dest: '{{ansible_env["HOME"]}}/.bash_profile'
 

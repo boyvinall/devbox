@@ -1,5 +1,8 @@
 #!/bin/bash
 
+pushd $(dirname $(realpath $0))
+trap popd EXIT
+
 function usage {
     cat <<EOF
 Usage: $0 [options] COMMAND [command options]
