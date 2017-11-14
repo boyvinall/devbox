@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+#  This is a git command to show status for a tree.
+#  Put it in your path and invoke as:
+#
+#    git stt
+
+for f in $(find . -maxdepth 2 -name .git); do D=$(dirname $f); echo "[$D]"; pushd $D >/dev/null; git st; popd >/dev/null; done

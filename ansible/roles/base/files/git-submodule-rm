@@ -1,0 +1,8 @@
+#!/bin/bash
+
+SUB=$1
+
+mv ${SUB} ${SUB}_tmp
+git submodule deinit ${SUB}
+git rm ${SUB}
+mv ${SUB}_tmp ${SUB}

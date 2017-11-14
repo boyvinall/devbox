@@ -1,0 +1,38 @@
+- name: gitignore global
+  copy:
+    content: |
+      *~
+      .DS_Store
+    dest: '{{ansible_env["HOME"]}}/.gitignore_global'
+    mode: 0644
+
+- name: global gitconfig
+  ini_file:
+    path: '{{ansible_env["HOME"]}}/.gitconfig'
+    create: yes
+    section: '{{item.section}}'
+    option: '{{item.option}}'
+    value: '{{item.value}}'
+    mode: 0755
+    backup: yes
+  with_items: '{{gitconfig}}'
+
+- name: git aliases
+  ini_file:
+    path: '{{ansible_env["HOME"]}}/.gitconfig'
+    create: yes
+    section: 'alias'
+    option: '{{item.key}}'
+    value: '{{item.value}}'
+    mode: 0755
+    backup: yes
+  with_dict: '{{gitalias}}'
+
+- name: git helper scripts
+  copy:
+    src: '{{item}}'
+    dest: '{{ansible_env["HOME"]}}/bin/{{item}}'
+    mode: 0755
+  with_items:
+    - git-stt
+    - git-submodule-rm

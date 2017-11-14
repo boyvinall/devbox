@@ -1,10 +1,11 @@
-- name: create home dot directories
+- name: create directories under $HOME
   file:
     name: '{{ansible_env["HOME"]}}/{{item}}'
     state: directory
   with_items:
     - .bash_profile.d
     - .bash_completion.d
+    - bin
 
 - name: write bash_profile.d scriptlets
   template:
@@ -28,3 +29,6 @@
 
 - import_tasks: _homebrew.yml
   tags: [homebrew]
+
+- import_tasks: _git.yml
+  tags: [git]

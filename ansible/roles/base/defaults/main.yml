@@ -33,3 +33,15 @@ homebrew_packages:
   watch:
   wget:
   wireshark:
+
+gitconfig:
+  - { section: push,  option: default,      value: current }
+  - { section: core,  option: excludesfile, value: '{{ansible_env["HOME"]}}/.gitignore_global' }
+  - { section: gitreview, option: remote, value: origin }
+
+gitalias:
+  st: status
+  ci: commit
+  di: 'diff --color-words'
+  out: '!git fetch && git log FETCH_HEAD..'
+  in: '!git fetch && git log ..FETCH_HEAD'
