@@ -1,2 +1,0 @@
-- import_tasks: "{{_action}}.yml"
-  tags: [python]

@@ -1,0 +1,17 @@
+- name: Check if Homebrew is already installed
+  stat:
+    path: /usr/local/bin/brew
+  register: brew
+
+  # credit http://rapidprogrammer.com/how-to-install-homebrew-with-ansible
+- name: Install Homebrew
+  shell: |
+    yes | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  when: not brew.stat.exists
+
+- homebrew:
+    name: '{{item.key}}'
+    install_options: '{{item.value.options|default(omit)}}'
+  with_dict: '{{homebrew_packages}}'
+  tags: [homebrew]
+

@@ -23,3 +23,8 @@
       test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
     dest: '{{ansible_env["HOME"]}}/.bash_profile'
 
+- import_tasks: _python.yml
+  tags: [python]
+
+- import_tasks: _homebrew.yml
+  tags: [homebrew]

@@ -1,2 +1,35 @@
 vagrant_default_provider: vmware_fusion
 shell_ps1: '\n`date "+%a%d/%m %H:%M:%S"` \[\033[32m\]\u@\h \[\033[33m\]`pwd`\033[0m\]\n$ '
+
+pip_conf:
+  list:
+    format: legacy
+
+homebrew_packages:
+  bash:
+  bash-completion:
+  cmake:
+  coreutils:
+  curl:
+  delve:
+  gawk:
+  git:
+  go:
+  graphviz:
+  gnu-sed:
+    options: with-default-names
+  jq:
+  imagemagick:
+  mercurial:
+  nmap:
+  openssl:
+  python:
+  rclone:
+  remake:
+  sqlite:
+  sshfs:
+  terraform:
+  tmux:
+  watch:
+  wget:
+  wireshark:

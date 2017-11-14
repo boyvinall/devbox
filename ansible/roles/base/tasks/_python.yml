@@ -7,5 +7,5 @@
 
 - name: configure pip
   template:
-    src: pip.conf.j2
+    src: python/pip.conf.j2
     dest: '{{ansible_env["HOME"]}}/.pip/pip.conf'

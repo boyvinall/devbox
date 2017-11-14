@@ -1,8 +1,0 @@
-allow_duplicates: false
-
-dependencies: []
-
-galaxy_info:
-  author: Matt Vinall
-  description: configures python stuff on your mac
-  min_ansible_version: 2.1
