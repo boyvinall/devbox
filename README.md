@@ -1,4 +1,4 @@
-# macdev
+# devbox
 
 This is a long-overdue attempt at starting to capture my mac development setup.
 There's not much in here yet, but I hope to progressively capture a little more

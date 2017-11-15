@@ -1,13 +1,13 @@
-_macdev() {
+_devbox() {
     local cur prev opts
 
     COMPREPLY=()
 
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
-    macdev_opt="$(macdev bash-completion)"
-    macdev_flags="$(echo ${macdev_opt} | sed 's/ [^-][a-z0-9_-]*//g' )"
-    macdev_actions="$(echo ${macdev_opt} | sed 's/--[a-z0-9-]*//g' | sed 's/\(^\| \)-[a-z]//g' )"
+    devbox_opt="$(devbox bash-completion)"
+    devbox_flags="$(echo ${devbox_opt} | sed 's/ [^-][a-z0-9_-]*//g' )"
+    devbox_actions="$(echo ${devbox_opt} | sed 's/--[a-z0-9-]*//g' | sed 's/\(^\| \)-[a-z]//g' )"
 
     case "${prev}" in
     -p|-i|-c)
@@ -23,12 +23,12 @@ _macdev() {
     esac
 
     if [[ ${cur} == -* ]] ; then
-        COMPREPLY=( $(compgen -W "${macdev_flags}" -- ${cur}) )
+        COMPREPLY=( $(compgen -W "${devbox_flags}" -- ${cur}) )
         return 0
     else
-        COMPREPLY=( $(compgen -W "${macdev_actions}" -- ${cur}) )
+        COMPREPLY=( $(compgen -W "${devbox_actions}" -- ${cur}) )
         return 0
     fi
 }
 
-complete -F _macdev macdev
+complete -F _devbox devbox
