@@ -18,3 +18,7 @@ fi
 for f in $HOME/.bash_completion.d/*; do
   . $f
 done
+
+{% for c in ['alpine','centos','ubuntu'] %}
+alias .{{c}}='docker run --rm -ti -h temp-{{c}} -v $(dirname $SSH_AUTH_SOCK) -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK -v $(pwd):/mnt/$(basename $(pwd)) {{c}} "$@"'
+{% endfor %}
