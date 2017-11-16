@@ -8,6 +8,7 @@ pip_conf:
 dotfiles:
   - cookiecutterrc
   - vimrc
+  - tmux.conf
 
 cookiecutters:
   tf: https://github.com/boyvinall/tf-cutter.git

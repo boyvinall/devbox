@@ -3,8 +3,13 @@ export PATH=$PATH:$HOME/bin
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000
 
-alias l='ls -alFG'
-alias ll='ls -alFG'
+{% if ansible_os_family == 'Darwin' %}
+{% set ls='gls' %}
+{% else %}
+{% set ls='ls' %}
+{% endif %}
+alias l='{{ls}} -alF --group-directories-first --color=always'
+alias ll='{{ls}} -lF --group-directories-first --color=always'
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
