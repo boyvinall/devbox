@@ -28,7 +28,11 @@
   tags: [python]
 
 - import_tasks: _homebrew.yml
-  tags: [homebrew]
+  when: ansible_os_family == 'Darwin'
+  tags: [homebrew,brew]
 
 - import_tasks: _git.yml
   tags: [git]
+
+- import_tasks: _openstack.yml
+  tags: [openstack]

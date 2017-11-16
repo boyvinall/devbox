@@ -6,6 +6,7 @@ pip_conf:
     format: legacy
 
 homebrew_packages:
+  ansible:
   bash:
   bash-completion:
   cmake:
@@ -18,6 +19,7 @@ homebrew_packages:
   graphviz:
   gnu-sed:
     options: with-default-names
+  httpie:
   jq:
   imagemagick:
   mercurial:
@@ -26,7 +28,9 @@ homebrew_packages:
   python:
   rclone:
   remake:
+  s3cmd:
   sqlite:
+  ssh-copy-id:
   sshfs:
   terraform:
   tmux:
