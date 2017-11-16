@@ -36,6 +36,7 @@
   with_items:
     - git-stt
     - git-submodule-rm
+    - git-author-rewrite
 
 # -----------
 
