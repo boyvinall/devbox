@@ -34,8 +34,10 @@ homebrew_packages:
   jq:
   imagemagick:
   mercurial:
+  mysql:
   nmap:
   openssl:
+  pstree:
   python:
   rclone:
   remake:
