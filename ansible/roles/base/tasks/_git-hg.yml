@@ -13,7 +13,7 @@
     section: '{{item.section}}'
     option: '{{item.option}}'
     value: '{{item.value}}'
-    mode: 0755
+    mode: 0644
     backup: yes
   with_items: '{{gitconfig}}'
 
@@ -24,7 +24,7 @@
     section: 'alias'
     option: '{{item.key}}'
     value: '{{item.value}}'
-    mode: 0755
+    mode: 0644
     backup: yes
   with_dict: '{{gitalias}}'
 
@@ -46,6 +46,6 @@
     section: '{{item.section}}'
     option: '{{item.option}}'
     value: '{{item.value|default("")}}'
-    mode: 0755
+    mode: 0644
     backup: yes
   with_items: '{{hgrc}}'
