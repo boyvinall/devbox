@@ -5,11 +5,20 @@ pip_conf:
   list:
     format: legacy
 
+dotfiles:
+  - cookiecutterrc
+
+cookiecutters:
+  tf: https://github.com/boyvinall/tf-cutter.git
+  ansible: https://github.com/boyvinall/ansible-cutter.git
+  ansible-role: https://github.com/boyvinall/ansible-role-cutter.git
+
 homebrew_packages:
   ansible:
   bash:
   bash-completion:
   cmake:
+  cookiecutter:
   coreutils:
   curl:
   delve:

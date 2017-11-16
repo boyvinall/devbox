@@ -1,0 +1,7 @@
+# various random dot files
+
+- name: generate templated dotfiles
+  template:
+    src: 'dotfiles/{{item}}.j2'
+    dest: '{{ansible_env["HOME"]}}/.{{item}}'
+  with_items: '{{dotfiles}}'

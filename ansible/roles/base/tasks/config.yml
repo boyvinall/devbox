@@ -13,3 +13,6 @@
 
 - import_tasks: _openstack.yml
   tags: [openstack]
+
+- import_tasks: _dotfiles.yml
+  tags: [dotfiles]
