@@ -8,8 +8,8 @@
   when: ansible_os_family == 'Darwin'
   tags: [homebrew,brew]
 
-- import_tasks: _git.yml
-  tags: [git]
+- import_tasks: _git-hg.yml
+  tags: [git, hg]
 
 - import_tasks: _openstack.yml
   tags: [openstack]

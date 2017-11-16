@@ -47,10 +47,15 @@ homebrew_packages:
   wget:
   wireshark:
 
+# This would be better as a nested dict but that's harder to do with ini_file. To be improved....
 gitconfig:
-  - { section: push,  option: default,      value: current }
-  - { section: core,  option: excludesfile, value: '{{ansible_env["HOME"]}}/.gitignore_global' }
-  - { section: gitreview, option: remote, value: origin }
+  - { section: push,      option: default,      value: current }
+  - { section: core,      option: excludesfile, value: '{{ansible_env["HOME"]}}/.gitignore_global' }
+  - { section: gitreview, option: remote,       value: origin }
+
+hgrc:
+  - { section: extensions, option: largefiles }
+  - { section: extensions, option: graphlog }
 
 gitalias:
   st: status

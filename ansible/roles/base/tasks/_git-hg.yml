@@ -36,3 +36,16 @@
   with_items:
     - git-stt
     - git-submodule-rm
+
+# -----------
+
+- name: global hgrc
+  ini_file:
+    path: '{{ansible_env["HOME"]}}/.hgrc'
+    create: yes
+    section: '{{item.section}}'
+    option: '{{item.option}}'
+    value: '{{item.value|default("")}}'
+    mode: 0755
+    backup: yes
+  with_items: '{{hgrc}}'
