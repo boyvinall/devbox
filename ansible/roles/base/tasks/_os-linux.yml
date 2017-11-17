@@ -1,0 +1,4 @@
+- pip:
+    name: '{{item.key}}'
+    state: present
+  with_dict: '{{linux_pip}}'

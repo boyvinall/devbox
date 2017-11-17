@@ -20,6 +20,4 @@
       for f in ~/.bash_profile.d/*; do
         . $f
       done
-
-      test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
     dest: '{{ansible_env["HOME"]}}/.bash_profile'

@@ -1,0 +1,6 @@
+- dnf:
+    name: '{{item.key}}'
+    state: present
+  with_dict: '{{dnf_packages}}'
+
+- import_tasks: '_os-linux.yml'

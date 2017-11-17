@@ -5,17 +5,18 @@ export HISTFILESIZE=1000000
 
 {% if ansible_os_family == 'Darwin' %}
 {% set ls='gls' %}
-{% else %}
-{% set ls='ls' %}
-{% endif %}
-alias l='{{ls}} -alF --group-directories-first --color=always'
-alias ll='{{ls}} -lF --group-directories-first --color=always'
-
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+{% else %}
+{% set ls='ls' %}
+{% endif %}
 
-for f in $HOME/.bash_completion.d/*; do
+alias l='{{ls}} -alF --group-directories-first --color=always'
+alias ll='{{ls}} -lF --group-directories-first --color=always'
+
+for f in $(find .bash_completion.d/ -maxdepth 1 -type f); do
   . $f
 done
 

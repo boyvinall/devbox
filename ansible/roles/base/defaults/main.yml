@@ -15,6 +15,19 @@ cookiecutters:
   ansible: https://github.com/boyvinall/ansible-cutter.git
   ansible-role: https://github.com/boyvinall/ansible-role-cutter.git
 
+dnf_packages:
+  ansible:
+  bash-completion:
+  golang:
+  graphviz:
+  jq:
+  ImageMagick:
+  mercurial:
+
+linux_pip:
+  cookiecutter:
+  httpie:
+
 homebrew_packages:
   ansible:
   bash:

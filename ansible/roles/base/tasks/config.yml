@@ -4,9 +4,12 @@
 - import_tasks: _python.yml
   tags: [python]
 
-- import_tasks: _homebrew.yml
-  when: ansible_os_family == 'Darwin'
-  tags: [homebrew,brew]
+- include_tasks: '{{file}}'
+  with_items:
+  - '_os-{{ansible_distribution|lower}}.yml'
+  loop_control:
+    loop_var: file
+  tags: [distro]
 
 - import_tasks: _git-hg.yml
   tags: [git, hg]
