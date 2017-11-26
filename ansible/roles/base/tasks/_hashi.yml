@@ -1,0 +1,7 @@
+
+- include_tasks: _hashi-app.yml
+  vars:
+    app: '{{item.key}}'
+    version: '{{item.value}}'
+  with_dict: '{{hashicorp_releases}}'
+  tags: [hashi]

@@ -1,0 +1,13 @@
+- name: '{{app}} : check for binary'
+  stat:
+    path: '/usr/local/bin/{{app}}'
+    follow: yes
+  register: bin_exists
+
+- name: '{{app}} : install'
+  when: not bin_exists.stat.exists
+  unarchive:
+    src: 'https://releases.hashicorp.com/{{app}}/{{version}}/{{app}}_{{version}}_{{ansible_system|lower}}_amd64.zip'
+    dest: /usr/local/bin
+    remote_src: yes
+    validate_certs: no

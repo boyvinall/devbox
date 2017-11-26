@@ -33,6 +33,7 @@ homebrew_packages:
   bash:
   bash-completion:
   cmake:
+  consul-template:
   cookiecutter:
   coreutils:
   curl:
@@ -55,14 +56,21 @@ homebrew_packages:
   rclone:
   remake:
   s3cmd:
+  shellcheck:
   sqlite:
   ssh-copy-id:
   sshfs:
   terraform:
   tmux:
+  vault:
   watch:
   wget:
   wireshark:
+
+hashicorp_releases:
+  terraform: 0.11.0
+  vault: 0.9.0
+  consul-template: 0.19.4
 
 # This would be better as a nested dict but that's harder to do with ini_file. To be improved....
 gitconfig:
@@ -72,7 +80,13 @@ gitconfig:
 
 hgrc:
   - { section: extensions, option: largefiles }
-  - { section: extensions, option: graphlog }
+  - { section: extensions, option: graphlog   }
+  - { section: extensions, option: eol        }
+  - { section: extensions, option: rebase     }
+  - { section: extensions, option: transplant }
+  - { section: extensions, option: progress   }
+  - { section: extensions, option: purge      }
+  - { section: extensions, option: strip      }
 
 gitalias:
   st: status
