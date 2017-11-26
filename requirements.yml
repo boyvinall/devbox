@@ -21,7 +21,8 @@
 # - src: http://bitbucket.org/willthames/hg-ansible-galaxy
 #   scm: hg
 
-## from GitLab or other git-based scm
-# - src: git@gitlab.company.com:mygroup/ansible-base.git
-#   scm: git
-#   version: "0.1"  # quoted, so YAML doesn't parse this as a floating-point value
+# from GitLab or other git-based scm
+- src: git@gitlab.internal.unity3d.com:mattv/devbox-unity.git
+  name: unity
+  scm: git
+  version: "master"  # quoted, so YAML doesn't parse this as a floating-point value
