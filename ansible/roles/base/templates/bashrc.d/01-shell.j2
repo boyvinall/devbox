@@ -24,3 +24,5 @@ done
 {% for c in ['alpine','centos','ubuntu','ubuntu:trusty'] %}
 alias .{{c|replace(":","-")}}='docker run --rm -ti --name {{c|replace(":","-")}}-$(env LC_CTYPE=C tr -dc "a-z0-9" < /dev/urandom | head -c 10) -h {{c|replace(":","-")}} -v $(dirname ${SSH_AUTH_SOCK) -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK -v $(pwd):/mnt/$(basename $(pwd)) {{c}} "$@"'
 {% endfor %}
+
+alias .agent='pkill -9 ssh-agent; eval $(ssh-agent -s); ssh-add ~/.ssh/id_rsa'
