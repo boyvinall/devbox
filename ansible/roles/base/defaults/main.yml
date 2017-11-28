@@ -28,6 +28,9 @@ linux_pip:
   cookiecutter:
   httpie:
 
+homebrew_casks:
+  osxfuse:
+
 homebrew_packages:
   ansible:
   bash:
@@ -44,10 +47,13 @@ homebrew_packages:
   graphviz:
   gnu-sed:
     options: with-default-names
+  gnu-tar:
   httpie:
   jq:
   imagemagick:
   mercurial:
+  moreutils:
+  mtr:
   mysql:
   nmap:
   openssl:
@@ -55,6 +61,7 @@ homebrew_packages:
   python:
   rclone:
   remake:
+  ruby:
   s3cmd:
   shellcheck:
   sqlite:
@@ -66,6 +73,7 @@ homebrew_packages:
   watch:
   wget:
   wireshark:
+  youtube-dl:
 
 hashicorp_releases:
   terraform: 0.11.0

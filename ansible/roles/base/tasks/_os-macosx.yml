@@ -9,6 +9,12 @@
     yes | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   when: not brew.stat.exists
 
+- homebrew_cask:
+    name: '{{item.key}}'
+    install_options: '{{item.value.options|default(omit)}}'
+  with_dict: '{{homebrew_casks}}'
+  tags: [homebrew]
+
 - homebrew:
     name: '{{item.key}}'
     install_options: '{{item.value.options|default(omit)}}'
