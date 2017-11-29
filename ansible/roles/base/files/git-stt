@@ -5,4 +5,62 @@
 #
 #    git stt
 
-for f in $(find . -maxdepth 2 -name .git); do D=$(dirname $f); echo "[$D]"; pushd $D >/dev/null; git st; popd >/dev/null; done
+quiet=
+depth=2
+
+SHORT_OPTS="qd:"
+# The OSX getopt command doesn't support long options
+while getopts $SHORT_OPTS optchar; do
+case "${optchar}" in
+
+  q)
+    quiet="true"
+    ;;
+
+  d)
+    depth=$OPTARG
+    ;;
+
+esac
+done
+  
+for f in $(find . -maxdepth $depth -name .git); do 
+  D=$(dirname $f)
+  pushd $D >/dev/null
+  if [ -n "$quiet" ]; then
+    git status --porcelain | gawk -v d=$D '
+BEGIN {
+  modified = added = deleted = unknown = 0
+}
+
+/^.M/ { 
+  modified++ 
+}; 
+
+/^A/ {
+  added++
+};
+
+/^ D/ {
+  deleted++
+};
+
+/^\?\? / { 
+  unknown++ 
+}; 
+
+END { 
+  printf("%s%s%s%s  %s\n", 
+    (added>0)?"A":" ",
+    (deleted>0)?"D":" ",
+    (modified>0)?"M":" ", 
+    (unknown>0)?"U":" ", 
+    d)
+}
+'
+  else
+    echo "[$D]"
+    git st
+  fi
+  popd >/dev/null
+done
