@@ -49,6 +49,7 @@ homebrew_packages:
   delve:
   gawk:
   git:
+  git-lfs:
   go:
   graphviz:
   gnu-sed:
