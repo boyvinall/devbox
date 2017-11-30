@@ -15,14 +15,20 @@ cookiecutters:
   ansible: https://github.com/boyvinall/ansible-cutter.git
   ansible-role: https://github.com/boyvinall/ansible-role-cutter.git
 
+gems:
+  json:
+
 dnf_packages:
   ansible:
   bash-completion:
+  gnupg:
   golang:
   graphviz:
   jq:
   ImageMagick:
   mercurial:
+  ruby-devel:
+  rubygems:
 
 linux_pip:
   cookiecutter:

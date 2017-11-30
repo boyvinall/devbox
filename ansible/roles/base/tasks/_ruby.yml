@@ -1,0 +1,6 @@
+- name: install gems
+  gem:
+    name: '{{item.key}}'
+    state: present
+  with_dict: '{{gems}}'
+  tags: [ruby]
