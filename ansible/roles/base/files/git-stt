@@ -5,37 +5,83 @@
 #
 #    git stt
 
-quiet=
-depth=2
+function usage {
+  echo "
+git stt [options]
 
-SHORT_OPTS="qd:"
+Show git status for a directory tree. By default, this will recurse one directory level.
+
+options:
+
+  -v    verbose mode - show full 'git status' for each dir
+  -f    do a 'git fetch' in each directory
+  -d    set max directory depth
+  -h    help
+
+For the default 'quiet' output, the following statuses are shown for each directory:
+
+   A    files added
+   D    files deleted
+   M    files modified
+   U    untracked (not ignored) files
+   <    incoming changesets from remote
+   >    outgoing changesets to remote
+"
+  exit
+}
+
+verbose=0
+depth=1
+fetch=0
+
+SHORT_OPTS="qd:fh"
 # The OSX getopt command doesn't support long options
 while getopts $SHORT_OPTS optchar; do
 case "${optchar}" in
 
-  q)
-    quiet="true"
+  v)
+    let verbose=verbose+1
+    ;;
+
+  f)
+    fetch=1
     ;;
 
   d)
     depth=$OPTARG
     ;;
 
+  h)
+    usage
+    ;;
+
+  *)
+    usage
+    ;;
 esac
 done
-  
-for f in $(find . -maxdepth $depth -name .git); do 
+
+for f in $(find . -maxdepth $(($depth+1)) -name .git); do
   D=$(dirname $f)
   pushd $D >/dev/null
-  if [ -n "$quiet" ]; then
-    git status --porcelain | gawk -v d=$D '
+  if [ "$verbose" -eq 0 ]; then
+    fetch_head_bad=$(git show FETCH_HEAD -- 2>&1 | grep -c 'bad revision')
+    if [ $fetch_head_bad -eq 0 ]; then
+      if [ "$fetch" -gt 0 ]; then git fetch; fi
+      out=$(git log FETCH_HEAD.. | egrep -c ^commit)
+      in=$(git log ..FETCH_HEAD | egrep -c ^commit)
+    else
+      out=0
+      in=0
+    fi
+    git status --porcelain | gawk -v d=$D -v incoming=$in -v outgoing=$out '
 BEGIN {
   modified = added = deleted = unknown = 0
 }
 
-/^.M/ { 
-  modified++ 
-}; 
+/^.M/ {
+  modified++
+};
 
 /^A/ {
   added++
@@ -45,16 +91,18 @@ BEGIN {
   deleted++
 };
 
-/^\?\? / { 
-  unknown++ 
-}; 
+/^\?\? / {
+  unknown++
+};
 
-END { 
-  printf("%s%s%s%s  %s\n", 
+END {
+  printf("%s%s%s%s%s%s  %s\n",
     (added>0)?"A":" ",
     (deleted>0)?"D":" ",
-    (modified>0)?"M":" ", 
-    (unknown>0)?"U":" ", 
+    (modified>0)?"M":" ",
+    (unknown>0)?"U":" ",
+    (incoming>0)?"<":" ",
+    (outgoing>0)?">":" ",
     d)
 }
 '
