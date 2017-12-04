@@ -27,6 +27,7 @@ dnf_packages:
   jq:
   ImageMagick:
   mercurial:
+  patch:
   ruby-devel:
   rubygems:
 
