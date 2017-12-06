@@ -79,7 +79,7 @@ BEGIN {
   modified = added = deleted = unknown = 0
 }
 
-/^.M/ {
+/^.?M/ {
   modified++
 };
 
@@ -87,7 +87,7 @@ BEGIN {
   added++
 };
 
-/^ D/ {
+/^ ?D/ {
   deleted++
 };
 
