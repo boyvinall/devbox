@@ -9,3 +9,8 @@
   template:
     src: python/pip.conf.j2
     dest: '{{ansible_env["HOME"]}}/.pip/pip.conf'
+
+- name: install pip packages
+  pip:
+    name: '{{item.key}}'
+  with_dict: '{{common_pip}}'

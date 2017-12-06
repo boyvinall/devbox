@@ -35,6 +35,9 @@ linux_pip:
   cookiecutter:
   httpie:
 
+common_pip:
+  yq:
+
 homebrew_casks:
   osxfuse:
 
