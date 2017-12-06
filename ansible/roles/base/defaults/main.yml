@@ -81,6 +81,7 @@ homebrew_packages:
   watch:
   wget:
   wireshark:
+    options: with-qt
   youtube-dl:
 
 hashicorp_releases:
