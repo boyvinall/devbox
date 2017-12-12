@@ -2,6 +2,8 @@
   pip:
     name: '{{item}}'
     state: present
+    extra_args: '--user'
   with_items:
     - python-openstackclient
     - python-designateclient
+    - python-neutronclient
