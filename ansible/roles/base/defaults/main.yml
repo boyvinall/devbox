@@ -53,6 +53,7 @@ homebrew_packages:
   delve:
   gawk:
   git:
+  gitlab-runner:
   git-lfs:
   go:
   graphviz:
