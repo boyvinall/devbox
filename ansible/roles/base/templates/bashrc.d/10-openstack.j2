@@ -1,2 +1,2 @@
-alias envos='env | grep OS_'
+alias envos='env | gawk "/OS_/ { print \"export \" \$1 }"'
 alias unsetos='unset $(echo $(env | grep OS_ | sed "s,=.*$,,g"))'
