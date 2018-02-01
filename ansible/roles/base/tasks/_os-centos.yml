@@ -3,15 +3,25 @@
     state: present
   with_items:
     - epel-release
-    - python-pip
-    - python-devel
-    - unzip
 
 - yum: 
     name: '{{item}}'
     state: present
   with_items:
     - bash-completion-extras
+    - python-pip
+    - python-devel
+    - unzip
+    - bind-utils
+    - nmap
+    - net-tools
+    - pciutils
+    - lshw
+    - dmidecode
+    - tcpdump
+    - traceroute
+    - iperf3
+    - sysstat
 
 - yum:
     name: '{{item.key}}'
