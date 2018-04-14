@@ -28,4 +28,8 @@ alias .{{c|replace(":","-")}}='docker run --rm -ti --name {{c|replace(":","-")}}
 alias .agent='pkill -9 ssh-agent; eval $(ssh-agent -s); ssh-add ~/.ssh/id_rsa'
 
 # add local pip binaries to path
+{% if ansible_distribution == "MacOSX" %}
 export PATH=$PATH:$HOME/Library/Python/2.7/bin
+{% else %}
+export PATH=$PATH:$HOME/.local/bin
+{% endif %}

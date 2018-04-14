@@ -1,12 +1,14 @@
 - yum: 
     name: '{{item}}'
     state: present
+  become: yes
   with_items:
     - epel-release
 
 - yum: 
     name: '{{item}}'
     state: present
+  become: yes
   with_items:
     - bash-completion-extras
     - python-pip
@@ -22,10 +24,12 @@
     - traceroute
     - iperf3
     - sysstat
+    - vim
 
 - yum:
     name: '{{item.key}}'
     state: present
+  become: yes
   with_dict: '{{dnf_packages}}'
 
 - import_tasks: '_os-linux.yml'
