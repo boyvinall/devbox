@@ -92,8 +92,8 @@ homebrew_packages:
   youtube-dl:
 
 hashicorp_releases:
-  terraform: 0.11.0
-  vault: 0.9.0
+  terraform: 0.11.7
+  vault: 0.10.1
   consul-template: 0.19.4
 
 # This would be better as a nested dict but that's harder to do with ini_file. To be improved....

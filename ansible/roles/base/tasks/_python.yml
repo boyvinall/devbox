@@ -13,4 +13,5 @@
 - name: install pip packages
   pip:
     name: '{{item.key}}'
+  become: yes
   with_dict: '{{common_pip}}'

@@ -5,6 +5,7 @@
   register: bin_exists
 
 - name: '{{app}} : install'
+  become: yes
   when: not bin_exists.stat.exists
   unarchive:
     src: 'https://releases.hashicorp.com/{{app}}/{{version}}/{{app}}_{{version}}_{{ansible_system|lower}}_amd64.zip'

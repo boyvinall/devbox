@@ -1,4 +1,5 @@
 - pip:
     name: '{{item.key}}'
     state: present
+  become: yes
   with_dict: '{{linux_pip}}'
