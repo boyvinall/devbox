@@ -11,7 +11,7 @@ please note that I accept no responsibility for your usage of this code.
 
 On RHEL-flavor linux:
 
-    sudo yum install -y git ansile
+    sudo yum install -y git ansible
 
 On Mac
 
