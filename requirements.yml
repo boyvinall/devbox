@@ -22,7 +22,7 @@
 #   scm: hg
 
 # from GitLab or other git-based scm
-- src: git@gitlab.internal.unity3d.com:mattv/devbox-unity.git
+- src: git@gitlab.cds.internal.unity3d.com:mattv/devbox-unity.git
   name: unity
   scm: git
   version: "master"  # quoted, so YAML doesn't parse this as a floating-point value

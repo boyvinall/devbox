@@ -1,9 +1,9 @@
-vagrant_default_provider: vmware_fusion
+vagrant_default_provider: '' # vmware_fusion
 shell_ps1: '\n`date "+%a%d/%m %H:%M:%S"` \[\033[32m\]\u@\h \[\033[33m\]`pwd`\033[0m\]\n$ '
 
 pip_conf:
   list:
-    format: legacy
+    format: freeze
 
 dotfiles:
   - cookiecutterrc
@@ -41,8 +41,11 @@ common_pip:
 homebrew_casks:
   osxfuse:
 
+homebrew_taps: {}
+  # go-delve/delve:
+
 homebrew_packages:
-  ansible:
+  # ansible:
   bash:
   bash-completion:
   cmake:
@@ -50,7 +53,9 @@ homebrew_packages:
   cookiecutter:
   coreutils:
   curl:
-  delve:
+  # delve:
+  #   options: HEAD
+  # docker:
   dos2unix:
   ffmpeg:
     options: with-fdk-aac,with-sdl2,with-freetype,with-libass,with-libvorbis,with-libvpx,with-opus,with-x265
@@ -74,6 +79,7 @@ homebrew_packages:
   openssl:
   pstree:
   python:
+  ripgrep: 
   rclone:
   remake:
   ruby:
@@ -87,14 +93,14 @@ homebrew_packages:
   vault:
   watch:
   wget:
-  wireshark:
-    options: with-qt
+  # wireshark:
+  #   options: with-qt
   youtube-dl:
 
 hashicorp_releases:
-  terraform: 0.11.7
-  vault: 0.10.1
-  consul-template: 0.19.4
+  terraform: 0.11.10
+  vault: 0.11.4
+  consul-template: 0.19.5
 
 # This would be better as a nested dict but that's harder to do with ini_file. To be improved....
 gitconfig:
