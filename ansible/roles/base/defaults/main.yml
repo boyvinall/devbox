@@ -36,6 +36,7 @@ linux_pip:
   httpie:
 
 common_pip:
+  hvac:
   yq:
 
 homebrew_casks:
@@ -79,7 +80,7 @@ homebrew_packages:
   openssl:
   pstree:
   python:
-  ripgrep: 
+  ripgrep:
   rclone:
   remake:
   ruby:
