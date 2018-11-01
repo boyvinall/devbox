@@ -38,6 +38,7 @@ linux_pip:
 common_pip:
   hvac:
   yq:
+  shade:
 
 homebrew_casks:
   osxfuse:
