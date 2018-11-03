@@ -30,6 +30,8 @@ alias .agent='pkill -9 ssh-agent; eval $(ssh-agent -s); ssh-add ~/.ssh/id_rsa'
 # add local pip binaries to path
 {% if ansible_distribution == "MacOSX" %}
 export PATH=$PATH:$HOME/Library/Python/2.7/bin
+export PATH=$PATH:$HOME/Library/Python/3.7/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin
 {% else %}
 export PATH=$PATH:$HOME/.local/bin
 {% endif %}
