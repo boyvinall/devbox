@@ -25,3 +25,6 @@
 
 - import_tasks: _hashi.yml
   tags: [hashi]
+
+- import_tasks: _docker.yml
+  tags: [docker]

@@ -1,0 +1,8 @@
+- name: docker helper scripts
+  copy:
+    src: '{{item}}'
+    dest: '{{ansible_env["HOME"]}}/bin/{{item}}'
+    mode: 0755
+  with_items:
+    - docker-image
+  tags: [docker]

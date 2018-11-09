@@ -1,0 +1,21 @@
+#!/bin/bash
+
+IMAGE_MATCH=$1
+COMMAND=${2:-ls}
+shift 2
+
+case $COMMAND in
+
+ls)
+	docker image ls | gawk '{ print $1 ":" $2 " " $3 }' | egrep "$IMAGE_MATCH" | column -t
+	;;
+
+rm)
+	docker image ls | gawk '{ print $1 ":" $2 " " $3 }' | egrep "$IMAGE_MATCH" | gawk '{ print $2 }' | xargs -L1 docker image rm "$@"
+	;;
+
+*)
+	echo "ERROR: unknown command '$COMMAND'"
+	;;
+
+esac
