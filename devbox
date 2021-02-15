@@ -168,7 +168,7 @@ case "$ACTION" in
   ;;
 
 (config)
-  $ECHO ansible-playbook -i $inventory $EXTRA_OPTS $VERBOSITY -e _action=$ACTION "$@" $PLAYBOOK
+  $ECHO ansible-playbook --ask-become-pass -i $inventory $EXTRA_OPTS $VERBOSITY -e _action=$ACTION "$@" $PLAYBOOK
   ;;
 
 (requirements)

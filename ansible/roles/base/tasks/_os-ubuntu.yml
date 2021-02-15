@@ -1,0 +1,21 @@
+- name: install packages
+  become: yes
+  apt:
+    pkg:
+      - ruby-dev
+      - vim
+      - gawk
+      - unzip
+      - dnsutils
+      - nmap
+      - net-tools
+      - pciutils
+      - lshw
+      - dmidecode
+      - tcpdump
+      - traceroute
+      - iperf3
+      - sysstat
+      - ripgrep
+
+- import_tasks: '_os-linux.yml'

@@ -1,9 +1,8 @@
 - name: install openstack CLI tools
   pip:
-    name: '{{item}}'
+    name:
+      - python-openstackclient
+      - python-designateclient
+      - python-neutronclient
     state: present
     extra_args: '--user'
-  with_items:
-    - python-openstackclient
-    - python-designateclient
-    - python-neutronclient
